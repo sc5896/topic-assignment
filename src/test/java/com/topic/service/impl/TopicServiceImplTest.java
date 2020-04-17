@@ -56,6 +56,7 @@ public class TopicServiceImplTest {
 		Mockito.when(topicRepository.getTopicPlacedAtThirdLevel()).thenReturn(topics);
 		List<Topic> resTopics = topicService.getTopicPlacedAtThirdLevel();
 		Assert.notEmpty(resTopics,"empty list returned");
+		resTopics.size();
 	}
 
 }
