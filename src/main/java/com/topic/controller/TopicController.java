@@ -40,7 +40,7 @@ public class TopicController {
 	
 	@GetMapping(value="/dummy",produces=MediaType.APPLICATION_JSON_VALUE)
 	ResponseEntity<String> dummyMethod() {
-		return new ResponseEntity<>("dummy",HttpStatus.OK);
+		return new ResponseEntity<>("dummy123",HttpStatus.OK);
 	}
 	
 }
