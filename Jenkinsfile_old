@@ -12,9 +12,19 @@ pipeline {
                 }
             }
         }
-        stage('Create Topic Tomcat Docker Image'){
+        stage('Deploy in Staging Environment'){
             steps{
-                sh 'docker build . -t topicTomcatImage:${env.BUILD_ID}'
+                build job: 'Topic-Project-Deploy'
+ 
+            }
+            
+        }
+        stage('Deploy to Production'){
+            steps{
+                timeout(time:5, unit:'DAYS'){
+                    input message:'Approve PRODUCTION Deployment?'
+                }
+                build job: 'Topic-Project-Deploy-Prod'
             }
         }
     }
