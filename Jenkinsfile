@@ -14,7 +14,7 @@ pipeline {
         }
         stage('Create Topic Tomcat Docker Image'){
             steps{
-                sh 'docker build . -t topicTomcatImage:${env.BUILD_ID}'
+                sh "docker build . -t topicTomcatImage:${env.BUILD_NUMBER}"
             }
         }
     }
