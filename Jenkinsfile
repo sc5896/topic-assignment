@@ -8,13 +8,13 @@ pipeline {
             post {
                 success {
                     echo "Now Archiving the Artifacts...."
-                    archiveArtifacts artifacts: '**/*.war'
+                    archiveArtifacts artifacts: '**/*.jar'
                 }
             }
         }
         stage('Create Topic Tomcat Docker Image'){
             steps{
-                sh "docker build . -t topictomcatimage:${env.BUILD_NUMBER}"
+                sh "docker build . -t topicspringbootimage:${env.BUILD_NUMBER}"
             }
         }
     }

@@ -1,4 +1,4 @@
-FROM tomcat:8.5.54-jdk8-openjdk
-ADD **/*.war /usr/local/tomcat/webapps
+FROM openjdk:8-jdk-alpine
+ADD **/*.jar /opt/app
 EXPOSE 8080
-CMD ["catalina.sh", "run"]
+ENTRYPOINT ["java","-jar","*.jar"]
